@@ -11,9 +11,9 @@ This repository is dedicated to storing and sharing applied regression analysis 
 
 ### Contents
 
-- **Scripts**: R scripts that demonstrate different regression techniques, including linear regression, multiple regression, logistic regression, and more. Each script is well-documented to explain the steps and logic used.
-- **Datasets**: A collection of datasets used in the analysis. These datasets are either sourced from publicly available data or generated for educational purposes.
-- **Documentation**: Detailed documentation explaining the concepts of regression analysis, the methodology used in the scripts, and the interpretation of results. This includes markdown files and Jupyter notebooks with embedded R code.
+- **R**: R scripts that demonstrate different regression techniques, including linear regression, multiple regression, logistic regression, and more. Each script is well-documented to explain the steps and logic used.
+- **data**: A collection of datasets used in the analysis. These datasets are either sourced from publicly available data or generated for educational purposes.
+- **docs**: Documentation explaining the concepts of regression analysis, the methodology used in the scripts, and the interpretation of results. This includes markdown files and Jupyter notebooks with embedded R code. 
 
 ### Objectives
 
