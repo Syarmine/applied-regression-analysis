@@ -7,12 +7,12 @@
 
 ## Project Brief
 
-This repository is dedicated to storing and sharing applied regression analysis projects using R. It includes various scripts, datasets, and documentation to help understand and perform regression analysis in R. The goal is to provide a comprehensive resource for learning and applying regression techniques in real-world scenarios. This project used the popular RAND Health Insurance Experiment (HIE) data.
+This repository is dedicated to storing and sharing applied regression analysis projects using R. It includes various scripts, datasets, and documentation to help understand and perform regression analysis in R. The goal is to provide a comprehensive resource for learning and applying regression techniques in real-world scenarios.
 
 ### Contents
 
 - **R**: R scripts that demonstrate different regression techniques, including linear regression, multiple regression, logistic regression, and more. Each script is well-documented to explain the steps and logic used.
-- **data**: A collection of datasets used in the analysis. These datasets are either sourced from publicly available data or generated for educational purposes.
+- **data**: A collection of datasets used in the analysis. These datasets are either sourced from publicly available data or generated for educational purposes. 
 - **docs**: Documentation explaining the concepts of regression analysis, the methodology used in the scripts, and the interpretation of results. This includes markdown files and Jupyter notebooks with embedded R code. 
 
 ### Objectives
