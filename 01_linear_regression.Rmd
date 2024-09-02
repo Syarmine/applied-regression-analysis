@@ -222,7 +222,8 @@ summary(lm.all)
 confint(object = lm.all,
 parm = c("education", "age", "ghi"),
 level = 0.95
-)```
+)
+```
 
 ANSWER:
 • Estimated Constant Term: αˆ = -4.606
@@ -315,10 +316,81 @@ lwd = 0.5)
 legend("topright",
 legend = c("95% CI"),
 col = c("red"),
-10
 lty = 2,
 lwd = 2,
 bty = "n" # Draw a box? "n" = "no"
 )
 ```
+
+# In-Class Exercise
+## Class Exercise 1
+```{r}
+lm.all <- lm(formula = income ~ education + age + ghi,
+            data = hiedata_short
+            )
+summary(lm.all)
+```
+```{r}
+#calculate the confidence interval for the coefficients
+confint(object = lm.all,
+        parm = c("education", "age", "ghi"),
+        level = 0.99
+        )
+```
+1a) Interpret the coefficient for the estimated regression coefficient for education (i.e., βeducation).
+Answer: The interpretation of the coefficients is as follows:
+- For each additional year of education, the expected family income is predicted to increase by $560 (i.e., 0.560 × $1000).
+- For each additional year of age, the expected family income is predicted to increase by $146 (i.e., 0.146 × $1000).
+- For each additional point in the General Health Index, the expected family income is predicted to increase by $40 (i.e., 0.040 × $1000).
+
+1b) What is the null hypothesis associated with the t-test for the coefficient for education? What do you conclude based on this test?
+Answer: The null hypothesis associated with the t-test for the coefficient for education is that the population value of the coefficient for education is equal to 0 (i.e., H0 : βˆEducation = 0). 
+
+The p-value for the t-test is less than 0.001, providing strong evidence against the null hypothesis, that we can reject H0. This indicates that at 95% confidence level (i.e, alpha = 0.05) in addition to 99% (a = 0.01) an the 99% (a=0.001) confidence levels.
+
+Therefore, we can reject the null hypothesis. This indicates that there is very strong statistical evidence that one’s level of education and family income are correlated in the population given age and general health index.
+
+1c) Interpret the value of R2.
+Answer: The coefficient of determination (R2) is 0.130. This indicates that 13% of the variation in the values of family income in the sample is explained by variation in the respondents’ levels of education, age, and general health index. This proportion is not very large, as we can see in the scatterplot.
+
+## Class Exercise 2
+
+Compare the values of the coefficient for education in the fitted models from Exercise 3 and 4. 
+- Why do you think the coefficient for education is different in the two models?
+- What does this suggest about the relationship between education and income?
+```{r}
+#Recall the linear regression from Exercise 3
+lm.educ <- lm(formula = income ~ education,
+              data = hiedata_short
+              )
+summary(lm.educ)
+```
+
+```{r}
+#Recall the linear regression model from Exercise 4
+summary(lm.all)
+```
+
+Calculate the Pearson correlation coefficient between income, education, age and ghi
+
+```{r}
+cor(hiedata_short[, c("income", "education", "age", "ghi")], 
+      use = "complete.obs"
+  )
+```
+
+Answer: 
+The coefficient for education in the simple linear regression model (Exercise 3) is 0.481, while the coefficient for education in the multiple linear regression model (Exercise 4) is 0.560. The coefficient for education is different in the two models because the multiple linear regression model includes additional explanatory variables (age and general health index) that are correlated with education and income - adjusting for the variables age and ghi.
+
+There are two ways one can think about why these two coefficients might be different. Specifically, one can consider the coefficients in terms of what is being estimated (i.e., what, precisely, does the coefficient mean in a technical sense?). Or one can consider the pairwise associations between
+the explanatory variables.
+
+When we fit the simple linear regression model, we are estimating the zero order association between education and income. This is the association between education and income without adjusting for any other variables. In the multiple linear regression model, we are estimating the association between education and income after adjusting for age and general health index. This is the first order association between education and income after adjusting for age and general health index.
+
+As for the second perspective, the variables added to the second model are interrelated (see the bivariate correlation table). And one reason that the coefficient for education may have increased in magnitude in the second model is due to the negative bivariate correlation between education
+and age.
+
+This correlation indicates that older individuals in the sample have lower levels of education compared to younger individuals — which is perhaps unsurprising in datasets containing adults as the number of typical years of education has increased over time. Accordingly, older people having higher incomes relative to younger people — but lower levels of education — makes the association between income and education appear weaker in the
+simple linear model which of course ignores age. In contrast, when we account for age in the multiple regression model, the coefficient for education reflects the association between income and education only among individuals of the same age (and self-reported health).
+
 
